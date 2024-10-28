@@ -12,7 +12,7 @@ impl From<DataFrame> for UrlData {
         let mut iters = df
             .get_columns()
             .iter()
-            .map(|s| s.iter())
+            .map(|s| s.as_materialized_series().iter())
             .collect::<Vec<_>>();
         let columns = df.get_column_names();
         let mut res = vec![];
